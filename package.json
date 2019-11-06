@@ -1,0 +1,23 @@
+{
+  "name": "raspberrypi-oled-dashboard",
+  "version": "1.0.0",
+  "description": "树莓派驱动oled显示屏，监控系统状态",
+  "main": "index.js",
+  "scripts": {
+    "init": "bash init.sh",
+    "start": "node src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lanten/raspberrypi-oled-dashboard.git"
+  },
+  "author": "lanten",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lanten/raspberrypi-oled-dashboard/issues"
+  },
+  "homepage": "https://github.com/lanten/raspberrypi-oled-dashboard#readme",
+  "dependencies": {
+    "oled-display": "^1.0.25"
+  }
+}

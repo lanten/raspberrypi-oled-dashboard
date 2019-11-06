@@ -1,0 +1,2 @@
+luma.core==1.9.0
+luma.oled==3.2.1
