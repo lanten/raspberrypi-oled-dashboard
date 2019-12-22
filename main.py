@@ -68,7 +68,7 @@ def render():
     with canvas(oled) as draw:
         offset = 16
         sys_info = getSysInfo()
-        print(sys_info)
+        # print(sys_info)
         draw.text((0, 0), "IP: " + sys_info['ip'], font=font, fill=255)
         draw.text((0, offset*1), "CPU: " +
                   sys_info['cpu_temp'] + " 'C", font=font, fill=255)
