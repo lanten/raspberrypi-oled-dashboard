@@ -35,3 +35,9 @@ sudo apt-get install -y python-smbus i2c-tools
  
 # Give write permission to the I2C device 
 # sudo chmod 777 /dev/i2c-*
+
+# 开机启动 需要配置路径
+# START_BAHS = /root/raspberrypi-oled-dashboard/start.sh
+chmod 777 start.sh
+# nano /etc/rc.local
+# bash /root/raspberrypi-oled-dashboard/start.sh
