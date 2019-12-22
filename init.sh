@@ -25,6 +25,13 @@ sudo python3 setup.py install
 # Luma.OLED Python 
 sudo apt install python-dev python-pip libfreetype6-dev libjpeg-dev build-essential libopenjp2-7 libtiff5 -y
 sudo -H pip install --upgrade luma.oled
+
+# I2C device
+sudo apt-get install -y python-smbus i2c-tools
+# 手动执行一下命令开启相应功能 Interfacing Options > P5 I2C
+# raspi-config 
+# 查看
+# sudo i2cdetect -y 1
  
 # Give write permission to the I2C device 
 # sudo chmod 777 /dev/i2c-*

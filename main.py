@@ -47,7 +47,9 @@ def main():
 def start(inc):
     # print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
-    main()
+    # main()
+
+    print("1")
 
     t = Timer(inc, start, (inc,))
     t.start()
