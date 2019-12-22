@@ -5,7 +5,7 @@ from luma.oled.device import ssd1306, ssd1325, ssd1331, sh1106
 
 from PIL import ImageFont
 
-textFont = ImageFont.FreeTypeFont("../assets/UbuntuMono-R.ttf", 18)
+textFont = ImageFont.FreeTypeFont("./assets/UbuntuMono-R.ttf", 18)
 
 # rev.1 users set port=0
 # substitute spi(device=0, port=0) below if using that interface

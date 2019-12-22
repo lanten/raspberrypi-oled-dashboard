@@ -11,10 +11,11 @@
 # sudo -H pip install --upgrade luma.oled
 
 # Python 3 & Python Pillow 
-sudo apt install python3 python3-pip python3-dev git
-sudo pip3 install --upgrade setuptools wheel
-sudo apt install libjpeg8-dev zlib1g-dev libtiff-dev libfreetype6 libfreetype6-dev libwebp-dev libopenjp2-7-dev libopenjp2-7-dev -y
-sudo pip3 install pillow --global-option="build_ext" --global-option="--enable-zlib" --global-option="--enable-jpeg" --global-option="--enable-freetype" --global-option="--enable-webp" --global-option="--enable-webpmux" --global-option="--enable-jpeg2000"
+# sudo apt install python3 python3-pip python3-dev git -y
+# sudo pip3 install --upgrade setuptools wheel
+# sudo apt install libjpeg8-dev zlib1g-dev libtiff-dev libfreetype6 libfreetype6-dev libwebp-dev libopenjp2-7-dev libopenjp2-7-dev -y
+# sudo pip3 install pillow --global-option="build_ext" --global-option="--enable-zlib" --global-option="--enable-jpeg" --global-option="--enable-freetype" --global-option="--enable-webp" --global-option="--enable-webpmux" --global-option="--enable-jpeg2000"
+# sudo pip3 install --upgrade luma.oled
  
 # Adafruit Python SSD1306 
 git clone https://github.com/adafruit/Adafruit_Python_SSD1306.git
@@ -22,7 +23,8 @@ cd Adafruit_Python_SSD1306
 sudo python3 setup.py install
  
 # Luma.OLED Python 
-sudo pip3 install --upgrade luma.oled
+sudo apt install python-dev python-pip libfreetype6-dev libjpeg-dev build-essential libopenjp2-7 libtiff5 -y
+sudo -H pip install --upgrade luma.oled
  
 # Give write permission to the I2C device 
-sudo chmod 777 /dev/i2c-*
+# sudo chmod 777 /dev/i2c-*
