@@ -15,16 +15,24 @@ import psutil
 
 serial = i2c(port=1, address=0x3C)
 oled = ssd1306(serial)
-font = ImageFont.truetype('/root/raspberrypi-oled-dashboard/assets/UbuntuMono-R.ttf', 14)
+font = ImageFont.truetype(
+    '/root/raspberrypi-oled-dashboard/assets/UbuntuMono-R.ttf', 14)
 draw = 0
 
 
-def get_ip_address(ifname):
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    return socket.inet_ntoa(fcntl.ioctl(
-        s.fileno(),
-        0x8915,
-        struct.pack('256s', ifname[:15]))[20:24])
+def get_local_ip():
+    ip_address = '127.0.0.1'
+    try:
+        addrs = psutil.net_if_addrs()
+        for _, net_card_info in addrs.items():
+            for each_ip in net_card_info:
+                # print(each_ip.address, each_ip.family, each_ip)
+                if each_ip.family == socket.AF_INET:  # linux socket.AF_INET=2
+                    ip_address = each_ip.address
+    except:
+        ip_address = 'get error'
+        pass
+    return ip_address
 
 
 def getCpuTemp():
@@ -48,7 +56,7 @@ def getSysInfo():
     return {
         # 'ip_eth0': get_ip_address('eth0'),
         # 'ip_wlan0': get_ip_address('wlan0'),
-        'ip': get_ip_address('eth0'),
+        'ip': get_local_ip(),
         # 'cpu_use': str(os.popen("top -n1 | awk '/Cpu\(s\):/ {print $2}'").readline().strip()),
         'cpu_use': str(psutil.cpu_percent(0)),
         'cpu_temp': getCpuTemp(),
