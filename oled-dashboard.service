@@ -1,0 +1,13 @@
+[Unit]
+
+Description=oled-dashboard
+
+[Service]
+
+Type=oneshot
+
+ExecStart=/root/raspberrypi-oled-dashboard/start.sh
+
+[Install]
+
+WantedBy=multi-user.target

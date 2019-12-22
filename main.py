@@ -11,6 +11,7 @@ from PIL import ImageFont
 from datetime import datetime
 from datetime import datetime
 from threading import Timer
+import psutil
 
 serial = i2c(port=1, address=0x3C)
 oled = ssd1306(serial)
@@ -48,11 +49,10 @@ def getSysInfo():
         # 'ip_eth0': get_ip_address('eth0'),
         # 'ip_wlan0': get_ip_address('wlan0'),
         'ip': get_ip_address('eth0'),
-        'cpu_use': str(os.popen("top -n1 | awk '/Cpu\(s\):/ {print $2}'").readline().strip()),
+        # 'cpu_use': str(os.popen("top -n1 | awk '/Cpu\(s\):/ {print $2}'").readline().strip()),
+        'cpu_use': str(psutil.cpu_percent(0)),
         'cpu_temp': getCpuTemp(),
-        'ram_total': str(round(int(ram_info[0]) / 1000, 1)),
-        'ram_use': str(round(int(ram_info[1]) / 1000, 1)),
-        'ram_free': str(round(int(ram_info[2]) / 1000, 1))
+        'ram_use': str(psutil.virtual_memory().percent),
     }
 
 
@@ -60,14 +60,14 @@ def render():
     with canvas(oled) as draw:
         offset = 16
         sys_info = getSysInfo()
-        # print(sys_info)
+        print(sys_info)
         draw.text((0, 0), "IP: " + sys_info['ip'], font=font, fill=255)
         draw.text((0, offset*1), "CPU: " +
                   sys_info['cpu_temp'] + " 'C", font=font, fill=255)
         draw.text((0, offset*2), "USE: " +
                   sys_info['cpu_use'] + " %", font=font, fill=255)
         draw.text((0, offset*3), "RAM: " +
-                  sys_info['ram_use'] + " / " + sys_info['ram_total'], font=font, fill=255)
+                  sys_info['ram_use'] + " %", font=font, fill=255)
 
 
 # def main():
