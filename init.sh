@@ -25,7 +25,7 @@ sudo python3 setup.py install
 # Luma.OLED Python 
 sudo apt install python-dev python-pip libfreetype6-dev libjpeg-dev build-essential libopenjp2-7 libtiff5 -y
 sudo -H pip3 install --upgrade luma.oled
-sudo -H python -m pip install psutil
+sudo -H python3 -m pip install psutil
 
 # I2C device
 sudo apt-get install -y python-smbus i2c-tools
