@@ -1,1 +1,1 @@
-python /root/raspberrypi-oled-dashboard/main.py
+python3 /root/raspberrypi-oled-dashboard/main.py
