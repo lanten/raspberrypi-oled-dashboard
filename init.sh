@@ -29,7 +29,7 @@ sudo apt-get install -y python-smbus i2c-tools
 
 # 开机启动 需要配置路径
 # START_BAHS = /root/raspberrypi-oled-dashboard/start.sh
-chmod 777 start.sh
+chmod 777 ./start.sh
 # nano /etc/rc.local
 # bash /root/raspberrypi-oled-dashboard/start.sh
 

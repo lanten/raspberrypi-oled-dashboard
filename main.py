@@ -16,7 +16,7 @@ import psutil
 serial = i2c(port=1, address=0x3C)
 oled = ssd1306(serial)
 font = ImageFont.truetype(
-    '/root/raspberrypi-oled-dashboard/assets/UbuntuMono-R.ttf', 14)
+    './assets/UbuntuMono-R.ttf', 14)
 draw = 0
 
 
